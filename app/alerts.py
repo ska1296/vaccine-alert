@@ -3,11 +3,12 @@ import json
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from datetime import date
 
 URL = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin"
 
 pincode = "250004"
-date = "01-05-2021"
+date = str(date.today().day) + '-' + str(date.today().month) + '-' + str(date.today().year)
 
 PARAMS = {'pincode': pincode, "date": date}
 
