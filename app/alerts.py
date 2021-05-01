@@ -17,13 +17,13 @@ centers = data['centers']
 
 
 def sendEmail(session):
-    sender = "ska1296@gmail.com"
-    password = 'trolled12345!'
-    receiver = "ska1296@gmail.com, prabodh1194@gmail.com"
+    sender = "pvanalyzr@gmail.com"
+    password = 'ypoohgrvcibflzzh'
+    receiver = ["ska1296@gmail.com", "prabodh1194@gmail.com"]
     email_message = "HELLO!\nVaccine available at:\n" + session
     message = MIMEMultipart()
     message['From'] = sender
-    message['To'] = receiver
+    message['To'] = ",".join(receiver)
     message['Subject'] = 'URGENT: Vaccine available!!'  # The subject line
     message.attach(MIMEText(email_message, 'plain'))
     session = smtplib.SMTP('smtp.gmail.com', 587)  # use gmail with port
