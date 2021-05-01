@@ -19,7 +19,7 @@ centers = data['centers']
 def sendEmail(session):
     sender = "ska1296@gmail.com"
     password = 'trolled12345!'
-    receiver = "ska1296@gmail.com"
+    receiver = "ska1296@gmail.com, prabodh1194@gmail.com"
     email_message = "HELLO!\nVaccine available at:\n" + session
     message = MIMEMultipart()
     message['From'] = sender
@@ -36,6 +36,7 @@ def sendEmail(session):
 
 
 x = ''
+available = 0
 for center in centers:
     sessions = center['sessions']
     name = center['name']
@@ -43,5 +44,7 @@ for center in centers:
         if session['min_age_limit'] == 18 and session['available_capacity'] > 0:
             pretty_session = json.dumps(session, indent=3)
             x = x + name + ' --> ' + pretty_session + '\n'
+            available = 1
 
-sendEmail(x)
+if available == 1:
+    sendEmail(x)
