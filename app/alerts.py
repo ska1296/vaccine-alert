@@ -8,9 +8,9 @@ from datetime import date
 URL = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin"
 
 pincode = "250004"
-date = str(date.today().day) + '-' + str(date.today().month) + '-' + str(date.today().year)
+dt = date.strftime(date.today(), format("%d-%m-%y"))
 
-PARAMS = {'pincode': pincode, "date": date}
+PARAMS = {'pincode': pincode, "date": dt}
 
 f = open('/home/pbd/alert.log', 'a')
 
