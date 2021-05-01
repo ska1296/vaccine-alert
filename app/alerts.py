@@ -19,9 +19,9 @@ centers = data['centers']
 
 
 def sendEmail(session):
-    sender = "pvanalyzr@gmail.com"
-    password = 'ypoohgrvcibflzzh'
-    receiver = ["ska1296@gmail.com", "prabodh1194@gmail.com"]
+    sender = "your@email.com"
+    password = 'your_password'
+    receiver = ["receipent1@email.com", "recepient2@email.com"]
     email_message = "HELLO!\nVaccine available at:\n" + session
     message = MIMEMultipart()
     message['From'] = sender
