@@ -11,6 +11,8 @@ date = "01-05-2021"
 
 PARAMS = {'pincode': pincode, "date": date}
 
+f = open('/home/pbd/alert.log', 'a')
+
 r = requests.get(url=URL, params=PARAMS)
 data = r.json()
 centers = data['centers']
@@ -32,7 +34,7 @@ def sendEmail(session):
     text = message.as_string()
     session.sendmail(sender, receiver, text)
     session.quit()
-    print('Mail Sent')
+    print('Mail Sent', file=f)
 
 
 x = ''
@@ -48,3 +50,7 @@ for center in centers:
 
 if available == 1:
     sendEmail(x)
+else:
+    print('no slot available', file=f)
+
+f.close()
